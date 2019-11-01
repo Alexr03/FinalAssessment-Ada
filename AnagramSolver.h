@@ -21,7 +21,7 @@ public:
     explicit AnagramSolver(std::string word);
 
 private:
-    std::vector<std::string> generateEnglishDictionary();
+    static std::vector<std::string> generateEnglishDictionary();
     void generatePossibleAnagrams(std::string str, int startIndex);
     std::vector<std::string> englishWords;
     std::vector<std::string> possibleAnagrams;

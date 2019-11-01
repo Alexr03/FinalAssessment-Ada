@@ -16,8 +16,6 @@ Menu::Menu(string word) {
 }
 
 void Menu::initializeMenu() {
-    cout << "___Menu___" << endl;
-
     while(true){
         showMenuOptions();
         int optionChosen = InputUtilities::getResponseFiltered("Please choose an option from above: ", 6);
@@ -38,6 +36,8 @@ void Menu::showMenuOptions() {
     options += formatOption("3) Convert {word} to lowercase\n", word);
     options += formatOption("4) Sort {word} in alphabetical order\n", word);
     options += formatOption("5) Show all possible anagrams of {word}\n", word);
+    options += formatOption("6) Change the current word ({word})\n", word);
+    options += formatOption("\nThe current word is {word}\n", word);
 
     cout << options;
 }
@@ -61,8 +61,7 @@ void Menu::executeMenuOptions(int i) {
             break;
         }
         case 4:{
-            string sortedWord = StringUtilities::sortAlphabetically(word);
-            cout << word << " sorted alphabetically is: " << sortedWord << endl;
+            cout << word << " sorted alphabetically is: " << StringUtilities::sortAlphabetically(word) << endl;
             break;
         }
         case 5:{
@@ -71,6 +70,10 @@ void Menu::executeMenuOptions(int i) {
             anagramSolver.printAllAnagrams();
             cout << "ENGLISH ANAGRAMS" << endl;
             anagramSolver.printEnglishAnagrams();
+            break;
+        }
+        case 6:{
+            this->word = InputUtilities::getResponse("Please enter a new word: ");
             break;
         }
         default:{
