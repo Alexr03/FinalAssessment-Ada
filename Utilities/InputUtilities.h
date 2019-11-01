@@ -14,8 +14,8 @@ public:
 
     static int getResponseFiltered(const std::string &question, int maxValue);
 
-    static bool confirmationResponse(std::string question);
+    static bool confirmationResponse(std::string quesconst tion);
 };
 
-
+&
 #endif //STRINGMANIPULATION_INPUTUTILITIES_H
