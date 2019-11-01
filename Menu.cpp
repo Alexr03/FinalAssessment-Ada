@@ -5,6 +5,7 @@
 #include "Menu.h"
 #include "Utilities/StringUtilities.h"
 #include "Utilities/InputUtilities.h"
+#include "AnagramSolver.h"
 #include <iostream>
 #include <utility>
 
@@ -65,6 +66,11 @@ void Menu::executeMenuOptions(int i) {
             break;
         }
         case 5:{
+            AnagramSolver anagramSolver = AnagramSolver(StringUtilities::convertToLowerCase(word));
+            cout << "POSSIBLE ANAGRAMS" << endl;
+            anagramSolver.printAllAnagrams();
+            cout << "ENGLISH ANAGRAMS" << endl;
+            anagramSolver.printEnglishAnagrams();
             break;
         }
         default:{

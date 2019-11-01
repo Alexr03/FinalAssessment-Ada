@@ -37,5 +37,4 @@ bool InputUtilities::confirmationResponse(std::string question) {
     string response = StringUtilities::convertToLowerCase(getResponse(question));
 
     return response == "y" || response == "yes";
-
 }
