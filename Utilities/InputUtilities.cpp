@@ -33,7 +33,7 @@ int InputUtilities::getResponseFiltered(const std::string &question, int maxValu
     }
 }
 
-bool InputUtilities::confirmationResponse(const std::string& question) {
+bool InputUtilities::confirmationResponse(std::string question) {
     string response = StringUtilities::convertToLowerCase(getResponse(question));
 
     return response == "y" || response == "yes";
