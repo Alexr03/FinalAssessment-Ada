@@ -13,6 +13,7 @@ class Menu {
 
 public:
     string word;
+    string lastWord;
 
     explicit Menu(string word);
 
@@ -20,8 +21,10 @@ public:
 
 private:
     void showMenuOptions();
+
     void executeMenuOptions(int option);
-    static string formatOption(string option, const string& word);
+
+    static string formatOption(string option, const string &word);
 };
 
 

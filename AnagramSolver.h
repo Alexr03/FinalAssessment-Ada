@@ -5,7 +5,6 @@
 #ifndef STRINGMANIPULATION_ANAGRAMSOLVER_H
 #define STRINGMANIPULATION_ANAGRAMSOLVER_H
 
-
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -15,14 +14,19 @@
 class AnagramSolver {
 
 public:
+    std::string word;
+
     void printAllAnagrams();
+
     void printEnglishAnagrams();
 
     explicit AnagramSolver(std::string word);
 
 private:
     static std::vector<std::string> generateEnglishDictionary();
+
     void generatePossibleAnagrams(std::string str, int startIndex);
+
     std::vector<std::string> englishWords;
     std::vector<std::string> possibleAnagrams;
 };

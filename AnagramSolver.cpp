@@ -6,6 +6,7 @@
 #include "Utilities/StringUtilities.h"
 
 AnagramSolver::AnagramSolver(std::string word) {
+    this->word = word;
     cout << "Anagram Solver initialized. Please wait." << endl;
     this->englishWords = generateEnglishDictionary();
     generatePossibleAnagrams(word, 0);
@@ -14,7 +15,7 @@ AnagramSolver::AnagramSolver(std::string word) {
 
 std::vector<std::string> AnagramSolver::generateEnglishDictionary() {
     std::vector<std::string> dictionary;
-    std::ifstream englishDictionary("words_alpha.txt");
+    std::ifstream englishDictionary("dictionary.data");
 
     for (std::string line; getline(englishDictionary, line);) {
         dictionary.push_back(StringUtilities::trim(line));
@@ -39,14 +40,15 @@ void AnagramSolver::generatePossibleAnagrams(string str, int startIndex) {
 }
 
 void AnagramSolver::printAllAnagrams() {
-    for (const auto& anagram : this->possibleAnagrams) {
+    for (const auto &anagram : this->possibleAnagrams) {
         cout << anagram << endl;
     }
 }
 
 void AnagramSolver::printEnglishAnagrams() {
-    for (const auto& anagram : this->possibleAnagrams) {
-        bool isEnglishWord = find(englishWords.begin(), englishWords.end(), anagram) != englishWords.end();
+    for (const auto &anagram : this->possibleAnagrams) {
+        bool isEnglishWord =
+                find(englishWords.begin(), englishWords.end(), anagram) != englishWords.end() && anagram != word;
         if (isEnglishWord) {
             cout << anagram << endl;
         }
