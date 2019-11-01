@@ -44,3 +44,9 @@ string StringUtilities::convertToUpperCase(string word) {
 
     return word;
 }
+
+string StringUtilities::sortAlphabetically(string word) {
+    string sortedWord = word;
+    sort(sortedWord.begin(), sortedWord.end());
+    return sortedWord;
+}

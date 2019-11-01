@@ -16,6 +16,8 @@ public:
 
     static string convertToUpperCase(string str);
 
+    static string sortAlphabetically(string str);
+
     static string trim(string str);
 
     static string reverse(string str);

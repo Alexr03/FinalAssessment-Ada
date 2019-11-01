@@ -6,7 +6,6 @@
 #include "Utilities/StringUtilities.h"
 #include "Utilities/InputUtilities.h"
 #include <iostream>
-#include <algorithm>
 #include <utility>
 
 using namespace std;
@@ -22,6 +21,7 @@ void Menu::initializeMenu() {
         showMenuOptions();
         int optionChosen = InputUtilities::getResponseFiltered("Please choose an option from above: ", 6);
         if(optionChosen == 0){
+            if(InputUtilities::confirmationResponse("Are you sure you wish to exit? "))
             break;
         }
         executeMenuOptions(optionChosen);
@@ -60,9 +60,7 @@ void Menu::executeMenuOptions(int i) {
             break;
         }
         case 4:{
-            string sortedWord = word;
-            sort(sortedWord.begin(), sortedWord.end());
-
+            string sortedWord = StringUtilities::sortAlphabetically(word);
             cout << word << " sorted alphabetically is: " << sortedWord << endl;
             break;
         }

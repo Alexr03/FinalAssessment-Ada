@@ -3,6 +3,7 @@
 //
 
 #include "InputUtilities.h"
+#include "StringUtilities.h"
 #include <iostream>
 #include <string>
 
@@ -20,7 +21,7 @@ std::string InputUtilities::getResponse(const std::string &question) {
 }
 
 int InputUtilities::getResponseFiltered(const std::string &question, int maxValue) {
-    while(true){
+    while (true) {
         string response = getResponse(question);
 
         for (int i = 0; i <= maxValue; i++) {
@@ -30,4 +31,11 @@ int InputUtilities::getResponseFiltered(const std::string &question, int maxValu
             }
         }
     }
+}
+
+bool InputUtilities::confirmationResponse(std::string question) {
+    string response = StringUtilities::convertToLowerCase(getResponse(question));
+
+    return response == "y" || response == "yes";
+
 }

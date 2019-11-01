@@ -12,6 +12,7 @@ class InputUtilities {
 public:
     static std::string getResponse(const std::string& question);
     static int getResponseFiltered(const std::string& question, int maxValue);
+    static bool confirmationResponse(std::string question);
 };
 
 
